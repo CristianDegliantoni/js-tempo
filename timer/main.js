@@ -18,17 +18,18 @@ const btnStop = document.getElementById("stop-btn");
 const btnReset = document.getElementById("reset-btn");
 
 
-let progress = 0;
-progressBar.style.width = "0%"
+progressBar.style.width = "0%" //imposto larghezza a 0%
+
+let percentuale = 0;
 
 const timer = setInterval(gestisciLarghezza, 100);
 
 
 function gestisciLarghezza() {
-	progress++
-	progressBar.style.width = progress + "%";
+	percentuale++
+	progressBar.style.width = percentuale + "%";
 
-	if (progress >= 100) {
+	if (percentuale >= 100) {
 		clearInterval(timer);
 		title.textContent = "Caricamento completato";
 	}
