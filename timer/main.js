@@ -17,6 +17,26 @@ const btnPlay = document.getElementById("play-btn");
 const btnStop = document.getElementById("stop-btn");
 const btnReset = document.getElementById("reset-btn");
 
+
+let progress = 0;
+progressBar.style.width = "0%"
+
+const timer = setInterval(gestisciLarghezza, 100);
+
+
+function gestisciLarghezza() {
+	progress++
+	progressBar.style.width = progress + "%";
+
+	if (progress >= 100) {
+		clearInterval(timer);
+		title.textContent = "Caricamento completato";
+	}
+}
+
+
+
+
 // Variabili di stato del cronometro
 let secondi = 0;
 let cronometroTimer = null;
@@ -56,20 +76,3 @@ btnReset.addEventListener("click", function () {
 	// Disabilito il tasto reset finché non riparte il cronometro
 	btnReset.disabled = true;
 });
-
-
-let progress = 0;
-progressBar.style.width = "0%"
-
-const timer = setInterval(gestisciLarghezza, 100);
-
-
-function gestisciLarghezza() {
-	progress++
-	progressBar.style.width = progress + "%";
-
-	if (progress >= 100) {
-		clearInterval(timer);
-		title.textContent = "Caricamento completato";
-	}
-}
